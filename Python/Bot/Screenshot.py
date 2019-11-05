@@ -4,7 +4,6 @@ import cv2
 import mss
 import numpy
 
-
 with mss.mss() as sct:
     # Part of the screen to capture
     monitor = {"top": 0, "left": 0, "width": 400, "height": 1000}
