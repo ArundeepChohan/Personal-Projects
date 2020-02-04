@@ -21,27 +21,23 @@ int main()
 {
 
 	char * symbols = new char[ARRAYSIZE]; 
-	
-   string temp;
-   
+	string temp;
 	ifstream fin("symbols.txt"); 
    
 	//1.	Test your code by reading from the given file symbols.txt. Each line has text composed of distinct symbols. Find the permutations for each line of the input file.
-   if(fin.is_open())
+   	if(fin.is_open())
 	{
-      cout << "File Opened successfully!!!. Reading data from file into array" << endl;
+      		cout << "File Opened successfully!!!. Reading data from file into array" << endl;
 
 		while(fin.getline(symbols,ARRAYSIZE))//Get each line and store in char array.
 		{
-         //~ for(int i =0;i<arraySize&&symbols[i]!=NULL;i++)//check to see if symbols are retrieved
-         //~ {
-            //~ cout<<symbols[i];
-         //~ }
-         COUNT = 0;
-         displayPermutation(symbols);
-         
+         	//~ for(int i =0;i<arraySize&&symbols[i]!=NULL;i++)//check to see if symbols are retrieved
+         	//~ {
+            	//~ cout<<symbols[i];
+         	//~ }
+         		COUNT = 0;
+         		displayPermutation(symbols);
 		}
-      
 		fin.close();
 	}
 	else 
@@ -57,17 +53,14 @@ This method figures the starts and end of the array.
 */
 void displayPermutation(char* symbols)
 {
+	int start = 0;
+   	int end = 0;
    
-   int start = 0;
-   int end = 0;
-   
-   for(int i = 0;(i < ARRAYSIZE) && (symbols[i]!=NULL);i++)//where to stop to avoid null pointer
-   {
-      end++;
-   }
-   
-   permutation(symbols,start,end);
-
+   	for(int i = 0;(i < ARRAYSIZE) && (symbols[i]!=NULL);i++)//where to stop to avoid null pointer
+   	{
+      		end++;
+   	} 
+   	permutation(symbols,start,end);
 }
 
 /* 
@@ -77,9 +70,9 @@ This method changes the pointer to reference another.
 */
 void swap(char *fir, char *sec)
 { 
-   char temp = *fir;
-   *fir = *sec;
-   *sec = temp;
+   	char temp = *fir;
+   	*fir = *sec;
+   	*sec = temp;
 }
 
 /*
@@ -91,23 +84,23 @@ This method finds out all possible permutations of a char array.
 void permutation(char * arr, int curr, int size)
 {
 
-   if(curr == size-1)
-   {
-      for(int a = 0; a < size; a++)
-      {
-         cout << arr[a];
-      }
-      cout << endl;
-   }
-   else
-   {
-      for(int i = curr; i < size; i++)
-      {
-         swap(&arr[curr], &arr[i]);
-         permutation(arr, curr+1, size);
-         swap(&arr[curr], &arr[i]);
-      }
-   }
+   	if(curr == size-1)
+   	{
+		for(int a = 0; a < size; a++)
+      		{
+         		cout << arr[a];
+      		}
+      		cout << endl;
+   	}
+   	else
+   	{
+      		for(int i = curr; i < size; i++)
+      		{
+         		swap(&arr[curr], &arr[i]);
+         		permutation(arr, curr+1, size);
+         		swap(&arr[curr], &arr[i]);
+      		}
+   	}
    
 }
        
